@@ -1,0 +1,744 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+#wrap {
+  width: 100%;
+  height: 100%;
+}
+#header {
+  width: 100%;
+  height: 100px;
+}
+#contents {
+  width: 100%;
+}
+#footer {
+  width: 100%;
+  height: 70px;
+}
+
+/* container */
+.header-container {
+  width: 100%;
+  height: 100%;
+}
+.contents-container {
+  width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 40px;
+  display: flex;
+}
+.container {
+  width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+}
+/* container */
+
+
+
+/* 상단메뉴 */
+.menu-top {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.menu-top ul {
+  margin-right: 5%;
+}
+.menu-top li{
+  list-style: none;
+  float: left;
+  margin-right: 25px;
+}
+.menu-top a{
+  color: #000;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* 상단메뉴 */
+
+/* header */
+.menu-bottom {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #23539b;
+}
+.menu {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu ul {
+  display: flex;
+}
+.menu .menu-li {
+  list-style: none;
+  padding: 15px;
+  display: inline-block;
+  position: relative;
+}
+.menu li .menu-a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 30px;
+  border-right: 1px solid;
+}
+.menu li a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 20px;
+}
+.menu-icon {
+  width: 15%;
+  height: 100%;
+}
+.menu-icon i {
+  color: #fff;
+  font-size: 35px;
+}
+.menu-icon a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+}
+/* 드롭메뉴 */
+.menu li ul {
+  display: none;
+  position: absolute;
+  top: 50px;
+  background-color: rgba(0,0,0,0.7);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.menu li ul li {
+  list-style: none;
+  padding: 15px;
+}
+.menu li ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.menu li:hover ul {
+  display: block;
+}
+.menu li ul li:hover {
+  background-color: #f2f2f2;
+}
+.menu li ul li:hover a {
+  color: #000;
+}
+/* 드롭메뉴 */
+/* 반응형 */
+.menu-phone {
+  display: none;
+}
+.menu-phone-drop {
+  display: none;
+}
+@media(max-width: 767px)  {
+  /* 상단메뉴 */
+  .menu-top ul {
+    margin-right: 0px;
+  }
+  .menu-top li{
+    list-style: none;
+    float: left;
+    margin-right: 25px;
+  }
+  .menu-top a{
+    color: #000;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  /* 상단메뉴 */
+  .menu-bottom {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #23539b;
+  }
+  .menu {
+    width: 70%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu ul {
+    display: none;
+  }
+  .menu .menu-li {
+    list-style: none;
+    padding: 15px;
+    display: inline-block;
+    position: relative;
+  }
+  .menu li .menu-a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 30px;
+    border-right: 1px solid;
+  }
+  .menu li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+  }
+  .menu-icon {
+    width: 15%;
+    height: 100%;
+    display: none;
+  }
+  .menu-icon i {
+    color: #fff;
+    font-size: 35px;
+  }
+  .menu-icon a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    font-weight: bold;
+  }
+  /* 드롭메뉴 */
+  .menu li ul {
+    display: none;
+    position: absolute;
+    top: 50px;
+    background-color: rgba(0,0,0,0.7);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  .menu li ul li {
+    list-style: none;
+    padding: 15px;
+  }
+  .menu li ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .menu li:hover ul {
+    display: block;
+  }
+  .menu li ul li:hover {
+    background-color: #f2f2f2;
+  }
+  .menu li ul li:hover a {
+    color: #000;
+  }
+  .menu-phone {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  .phone-icon {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .phone-icon i {
+    font-size: 40px;
+    color: #f2f2f2;
+  }
+  .phone-img {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .phone-img img {
+    width: 23%;
+    height: 85%;
+    padding-top: 5px;
+    padding-right: 5px;
+  }
+  .menu-phone-drop {
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 999;
+  }
+  .menu-phone-drop > ul {
+    width: 100%;
+    height: 100%;
+  }
+  .menu-phone-drop ul li {
+    width: 100%;
+    height: 20%;
+    list-style: none;
+    display: inline-block;
+  }
+  .menu-phone-drop li:hover ul {
+    display: block;
+  }
+  .menu-phone-drop > ul > li > a {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #23539b;
+    line-height: 60px;
+  }
+  .menu-phone-drop li ul {
+    width: 100%;
+    display: none;
+    background-color: #f4f4f4;
+    transition: height 4s;
+  }
+  .menu-phone-drop li ul li {
+    width: 100%;
+  }
+  .menu-phone-drop li > ul > li > a {
+    color: #000;
+    font-size: 15px;
+    font-weight: normal;
+    text-decoration: none;
+    padding: 1px;
+    line-height: 35px;
+  }
+}
+/* 반응형 */
+/* header */
+
+
+
+/* contents */
+/* 좌측 메뉴 */
+  .side-professor {
+    width: 15%;
+    height: 100%;
+  }
+  .side-professor-img {
+    width: 100%;
+    text-align: center;
+    
+  }
+  .side-professor-img img {
+    width: 50%;
+  }
+  .side-professor-title {
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+  }
+  .side-professor-title h2 {
+    border-bottom: 2px solid;
+    padding: 15px 0px;
+  }
+  .side-professor-text {
+    width: 100%;
+    text-align: left;
+  }
+  .side-professor-kinds {
+    width: 100%;
+    display: flex;
+    border-bottom: 2px solid #d8d8d8;
+    padding: 10px 0px;
+  }
+  .side-text {
+    width: 90%;
+  }
+  .side-text a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .side-icon {
+    width: 10%;
+  }
+  .side-icon i {
+    font-size: 18px;
+  }
+  .side-professor-kinds:hover {
+    border-bottom: 2px solid #23539b;
+  }
+  .side-professor-kinds:hover  a {
+    color: #23539b;
+  }
+  .side-professor-kinds:hover i {
+    color: #23539b;
+  }
+  /* 좌측메뉴 */
+  .executives-content {
+    width: 70%;
+    height: 100%;
+    margin-left: 10.5%;
+    margin-bottom: 30px;
+  }
+  .executives-title {
+    width: 100%;
+    height: 10%;
+    padding-bottom: 30px;
+  }
+  .executives-box {
+    width: 100%;
+    height: 90%;
+  }
+  .introduce-box {
+    width: 100%;
+    height: 200px;;
+    padding-bottom: 20px;
+    display: flex;
+  }
+  .introduce-img-box {
+    width: 20%;
+    height: 100%;
+  }
+  .introduce-img {
+    width: 100%;
+    height: 68%;
+  }
+  .introduce-img img {
+    width: 75%;
+    height: 80%;
+  }
+  .introduce-name {
+    width: 100%;
+    height: 20%;
+    text-align: left;
+    padding-top: 10px;
+  }
+  .introduce-career {
+    width: 60%;
+    height: 100%;
+  }
+  .career-title {
+    width: 100%;
+    height: 20%;
+    border-bottom: 2px solid #23539b;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .career-title h3 {
+    color: #23539b;
+    padding-left: 10px;
+  }
+  .career-text {
+    width: 100%;
+    height: 80%;
+  }
+  .introduce-career ul {
+    padding-left: 0px;
+    padding-top: 0px;
+  }
+  .introduce-career li {
+    list-style: none;
+    padding: 5px 0px;
+  }
+  .introduce-career li p {
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+  }
+  .introduce-university {
+    width: 20%;
+    height: 100%;
+  }
+  .university-title {
+    width: 100%;
+    height: 20%;
+    border-bottom: 2px solid #23539b;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .university-title h3 {
+    color: #23539b;
+    padding-left: 10px;
+  }
+  .university-text {
+    width: 100%;
+    height: 80%;
+  }
+  .introduce-university p {
+    padding-top: 60px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+  }
+  .introduce-table {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .introduce-table h4{
+ margin-left: 180px; 
+ margin-bottom: 14px;
+  }
+  
+  .introduce-table h3 {
+    padding: 20px 0px;
+  }
+  .introduce-table table {
+    width: 725px;
+    text-align:left;
+    margin-left : 60px;
+    border-collapse: collapse;
+  }
+  .introduce-table table th {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 6px 0px;
+    font-size: 15px;
+    width: 37.5%;
+  }
+  .introduce-table table td {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 0px;
+  }
+@media (max-width: 767px) {
+  .contents-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 40px;
+    display: flex;
+  }
+  /* 좌측 메뉴 */
+  .side-professor {
+    width: 15%;
+    height: 100%;
+    display: none;
+  }
+  .side-professor-img {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  .side-professor-img img {
+    width: 50%;
+  }
+  .side-professor-title {
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+  }
+  .side-professor-title h2 {
+    border-bottom: 2px solid;
+    padding: 15px 0px;
+  }
+  .side-professor-text {
+    width: 100%;
+    text-align: left;
+  }
+  .side-professor-kinds {
+    width: 100%;
+    display: flex;
+    border-bottom: 2px solid #d8d8d8;
+    padding: 10px 0px;
+  }
+  .side-text {
+    width: 90%;
+  }
+  .side-text a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .side-icon {
+    width: 10%;
+  }
+  .side-icon i {
+    font-size: 18px;
+  }
+  .side-professor-kinds:hover {
+    border-bottom: 2px solid #23539b;
+  }
+  .side-professor-kinds:hover  a {
+    color: #23539b;
+  }
+  .side-professor-kinds:hover i {
+    color: #23539b;
+  }
+  /* 좌측메뉴 */
+  .executives-content {
+    width: 90%;
+    height: 100%;
+    margin-left: 4%;
+    margin-bottom: 30px;
+    margin: 0 auto;
+  }
+  .executives-title {
+    width: 100%;
+    height: 10%;
+    padding-bottom: 30px;
+  }
+  .executives-box {
+    width: 100%;
+    height: 90%;
+  }
+  .introduce-box {
+    width: 100%;
+    height: 400px;
+    padding-bottom: 20px;
+    display: inline-block;
+    border-bottom: 1px solid #d4d3d3;
+    margin-bottom: 20px;
+  }
+  .introduce-img-box {
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+  }
+  .introduce-img {
+    width: 100%;
+    height: 75%;
+  }
+  .introduce-img img {
+    width: 75%;
+    height: 100%;
+  }
+  .introduce-name {
+    width: 100%;
+    height: 20%;
+    text-align: left;
+    font-size: 17px;
+    padding-top: 10px;
+  }
+  .introduce-career {
+    width: 100%;
+    height: 30%;
+  }
+  .introduce-career .career-title h3 {
+    color: #23539b;
+    padding-left: 0px;
+  }
+  .introduce-career ul {
+    padding-top: 0px;
+    padding-left: 0px;
+  }
+  .introduce-career li {
+    list-style: none;
+    padding: 5px 0px;
+  }
+  .introduce-career li p {
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+  }
+  .introduce-university {
+    width: 100%;
+    height: 20%;
+  }
+  .university-title {
+    width: 100%;
+    height: 40%;
+    border-bottom: 2px solid #23539b;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .university-title h3 {
+    color: #23539b;
+    padding-left: 0px;
+  }
+  .university-text {
+    width: 100%;
+    height: 60%;
+  }
+  .introduce-university p {
+    padding-top: 14px;
+    font-weight: bold;
+    font-size: 17px;
+    color: #000;
+  }
+  .introduce-table {
+    width: 110%;
+    margin-bottom: 30px;
+  }
+    .introduce-table h4{
+ margin-left: 0px; 
+ margin-bottom: 14px;
+  }
+  
+  .introduce-table h3 {
+    padding: 20px 0px;
+  }
+  .introduce-table table {
+    width: 90%;
+    margin-left:0px;
+    border-collapse: collapse;
+
+  }
+  .introduce-table table th {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding: 6px 0px;
+    font-size: 15px;
+    width: 35.5%;
+  }
+  
+
+  .introduce-table table td {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 0px;
+  }
+  
+  .executives_img{
+  display: none;
+  }
+}
+/* contents */
+
+
+/* footer */
+.footer-contents {
+  width: 100%;
+  height: 100%;
+}
+.footer-contents p {
+  color: #BDBDBD;
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+.executives_table{
+	width: 100%;
+}	
+	
+  .container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .footer-contents p {
+    color: #BDBDBD;
+    font-size: 10px;
+  }
+}
+/* footer */
+
+
+
+
+

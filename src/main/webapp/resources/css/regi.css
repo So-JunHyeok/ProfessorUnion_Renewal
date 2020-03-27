@@ -1,0 +1,1342 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+#wrap {
+  width: 100%;
+  height: 100%;
+}
+#contents {
+  width: 100%;
+  height: 100%;
+}
+.contents-container {
+  width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+}
+/* 약관  */
+.conditio {
+  width: 100%;
+  height: 920px;
+}
+.conditio form {
+  width: 100%;
+  height: 100%;
+}
+.conditio-top {
+  width: 100%;
+  height: 20%;
+}
+.conditio-name {
+  width: 100%;
+  height: 50%;
+  letter-spacing: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.conditio-name h3 {
+  font-size: 25px;
+  font-weight: bold;
+}
+.conditio-step {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.conditio-step .step-one {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+  background-color: #a4a4a4;
+}
+.conditio-step .step-one h4 {
+  font-size: 20px;
+  color: #fff;
+}
+.conditio-step .step-two {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+}
+.conditio-step .step-two h4 {
+  font-size: 20px;
+  color: #000;
+}
+.conditio-step .step-three {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+}
+.conditio-step .step-three h4 {
+  font-size: 20px;
+  color: #000;
+}
+.conditio-step .step-for {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 0%;
+  text-align: center;
+  padding: 14px;
+}
+.conditio-step .step-for h4 {
+  font-size: 20px;
+  color: #000;
+}
+.conditio-center {
+  width: 100%;
+  height: 80%;
+}
+.conditio-select-one {
+  width: 100%;
+  height: 50%;
+}
+.conditio-select-two {
+  width: 100%;
+  height: 50%;
+}
+.conditio-text {
+  width: 100%;
+  height: 10%;
+}
+.conditio-text h4 {
+  font-size: 20px;
+}
+.conditio-textarea {
+  width: 100%;
+  height: 70%;
+}
+.conditio-textarea textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  outline: inherit;
+}
+.conditio-radio {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.conditio-radio .OK {
+  margin-right: 3%;
+}
+.conditio-radio .OK label {
+  font-weight: bold;
+}
+.conditio-radio .NO label {
+  font-weight: bold;
+}
+.conditio-bottom {
+  width: 100%;
+  height: 10%;
+}
+.conditio-btn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.conditio-btn input {
+  padding: 7px 25px;
+  border: 1px solid #615b5b;
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 1%;
+}
+.conditio-btn input:hover {
+  background-color: #615b5b;
+  color: #fff;
+  font-weight: bold;
+}
+@media (max-width: 767px) {
+  .contents-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .conditio {
+    width: 90%;
+    height: 920px;
+    margin: 0 auto;
+  }
+  .conditio form {
+    width: 100%;
+    height: 100%;
+  }
+  .conditio-top {
+    width: 100%;
+    height: 20%;
+  }
+  .conditio-name {
+    width: 100%;
+    height: 50%;
+    letter-spacing: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .conditio-name h3 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .conditio-step {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .conditio-step .step-one {
+    width: 65%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    background-color: #a4a4a4;
+  }
+  .conditio-step .step-one h4 {
+    font-size: 20px;
+    color: #fff;
+  }
+  .conditio-step .step-two {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .conditio-step .step-two h4 {
+    font-size: 20px;
+    color: #000;
+  }
+  .conditio-step .step-three {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .conditio-step .step-three h4 {
+    font-size: 20px;
+    color: #000;
+  }
+  .conditio-step .step-for {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 0%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .conditio-step .step-for h4 {
+    font-size: 20px;
+    color: #000;
+  }
+  .conditio-center {
+    width: 100%;
+    height: 80%;
+  }
+  .conditio-select-one {
+    width: 100%;
+    height: 50%;
+  }
+  .conditio-select-two {
+    width: 100%;
+    height: 50%;
+  }
+  .conditio-text {
+    width: 100%;
+    height: 10%;
+  }
+  .conditio-text h4 {
+    font-size: 16px;
+  }
+  .conditio-textarea {
+    width: 100%;
+    height: 70%;
+  }
+  .conditio-textarea textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+  }
+  .conditio-radio {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 12px;
+  }
+  .conditio-radio .OK {
+    margin-right: 3%;
+  }
+  .conditio-bottom {
+    width: 100%;
+    height: 10%;
+  }
+  .conditio-btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .conditio-btn input {
+    padding: 7px 15px;
+    border: 1px solid #615b5b;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 1%;
+  }
+  .conditio-btn input:hover {
+    background-color: #615b5b;
+    color: #fff;
+    font-weight: bold;
+  }
+}
+/* 약관  */
+
+
+/* 이메일 */
+.email {
+  width: 100%;
+  height: 600px;
+}
+.email-top {
+  width: 100%;
+  height: 30%;
+}
+.email-name {
+  width: 100%;
+  height: 50%;
+  letter-spacing: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.email-name h3 {
+  font-size: 25px;
+  font-weight: bold;
+}
+.email-step {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.email-step .step-one {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+}
+.email-step .step-one h4 {
+  font-size: 20px;
+  color: #000;
+}
+.email-step .step-two {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+  background-color: #a4a4a4;
+}
+.email-step .step-two h4 {
+  font-size: 20px;
+  color: #fff;
+}
+.email-step .step-three {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+}
+.email-step .step-three h4 {
+  font-size: 20px;
+  color: #000;
+}
+.email-step .step-for {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 0%;
+  text-align: center;
+  padding: 14px;
+}
+.email-step .step-for h4 {
+  font-size: 20px;
+  color: #000;
+}
+.email-center {
+  width: 100%;
+  height: 58%;
+  margin-top: 5%;
+}
+.email-text {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  border-bottom: 2px solid #bbb;
+}
+.email-text .left-text {
+  width: 50%;
+  height: 100%;
+  line-height: 28px;
+}
+.email-text .left-text h4 {
+  font-size: 20px;
+}
+.email-text .right-text {
+  width: 50%;
+  height: 100%;
+  line-height: 35px;
+  text-align: right;
+}
+.email-text .right-text p {
+  font-size: 13px;
+  font-weight: bold;
+}
+.email-box {
+  width: 90%;
+  height: 30%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+}
+.email-input-name {
+  width: 10%;
+}
+.email-input-name label {
+  font-size: 17px;
+  font-weight: bold;
+}
+.email-input {
+  width: 70%;
+}
+.email-input input {
+  width: 25%;
+  margin: 0px 10px;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8;
+}
+.email-input select {
+  padding: 3px;
+  width: 15%;
+  height: 35px;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+}
+.email-time-one {
+  width: 90%;
+  height: 15%;
+  margin: 0 auto;
+  display: flex;
+}
+.email-time {
+  width: 90%;
+  height: 15%;
+  margin: 0 auto;
+  display: flex;
+}
+.email-time-text {
+  width: 10%;
+}
+.email-time-one p {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 125px;
+}
+.email-time p {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px 10px;
+}
+.email-input-btn {
+  width: 15%;
+  text-align: left;
+}
+.email-input-btn input {
+  padding: 10px;
+  border: none;
+  background-color: #25affb;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  box-shadow: 0px 1px 3px black;
+}
+.email-bottom {
+  width: 100%;
+  height: 10%;
+}
+@media (max-width: 767px) {
+  .contents-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .email {
+    width: 90%;
+    height: 830px;
+    margin: 0 auto;
+  }
+  .email-top {
+    width: 100%;
+    height: 30%;
+  }
+  .email-name {
+    width: 100%;
+    height: 50%;
+    letter-spacing: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .email-name h3 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .email-step {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .email-step .step-one {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .email-step .step-one h4 {
+    font-size: 20px;
+    color: #000;
+  }
+  .email-step .step-two {
+    width: 65%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    background-color: #a4a4a4;
+  }
+  .email-step .step-two h4 {
+    font-size: 20px;
+    color: #fff;
+  }
+  .email-step .step-three {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .email-step .step-three h4 {
+    font-size: 20px;
+    color: #000;
+  }
+  .email-step .step-for {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 0%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .email-step .step-for h4 {
+    font-size: 20px;
+    color: #000;
+  }
+  .email-center {
+    width: 100%;
+    height: 58%;
+    margin-top: 5%;
+  }
+  .email-text {
+    width: 100%;
+    height: 6%;
+    display: flex;
+    border-bottom: 2px solid #bbb;
+  }
+  .email-text .left-text {
+    width: 50%;
+    height: 100%;
+    line-height: 28px;
+  }
+  .email-text .left-text h4 {
+    font-size: 16px;
+  }
+  .email-text .right-text {
+    width: 50%;
+    height: 100%;
+    line-height: 35px;
+    text-align: right;
+  }
+  .email-text .right-text p {
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .email-box {
+    width: 90%;
+    height: 30%;
+    display: block;
+    margin: 0 auto;
+  }
+  .email-input-name {
+    width: 100%;
+    padding: 10px 0px;
+  }
+  .email-input-name label {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .email-input {
+    width: 100%;
+    padding: 10px 0px;
+  }
+  .email-input input {
+    width: 40%;
+    margin: 0px 0px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #d8d8d8;
+  }
+  .email-input select {
+    padding: 3px;
+    width: 35%;
+    height: 35px;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+  }
+  .email-time-one {
+    width: 90%;
+    height: 15%;
+    margin: 0 auto;
+    display: flex;
+    line-height: 95px;
+  }
+  .email-time {
+    width: 90%;
+    height: 15%;
+    margin: 0 auto;
+    display: flex;
+  }
+  .email-time-text {
+    width: 25%;
+  }
+  .email-time-one p {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 55px;
+  }
+  .email-time p {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px 10px;
+  }
+  .email-input-btn {
+    width: 100%;
+    text-align: left;
+  }
+  .email-input-btn input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #25affb;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0px 1px 3px black;
+  }
+  .email-bottom {
+    width: 100%;
+    height: 10%;
+  }
+}
+/* 이메일 */
+
+
+
+
+
+/* 회원가입 */
+.member {
+  width: 100%;
+  height: 1020px;
+}
+.member form {
+  width: 100%;
+  height: 100%;
+}
+.member-top {
+  width: 100%;
+  height: 30%;
+}
+.member-name {
+  width: 100%;
+  height: 50%;
+  letter-spacing: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.member-name h3 {
+  font-size: 25px;
+  font-weight: bold;
+}
+.member-step {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.member-step .step-one {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+}
+.member-step .step-one h4 {
+  font-size: 20px;
+  color: #000;
+}
+.member-step .step-two {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+}
+.member-step .step-two h4 {
+  font-size: 20px;
+  color: #000;
+}
+.member-step .step-three {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+  background-color: #a4a4a4;
+}
+.member-step .step-three h4 {
+  font-size: 20px;
+  color: #fff;
+}
+.member-step .step-for {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 0%;
+  text-align: center;
+  padding: 14px;
+}
+.member-step .step-for h4 {
+  font-size: 20px;
+  color: #000;
+}
+.member-center {
+  width: 100%;
+  height: 60%;
+}
+.membeer-title {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  border-bottom: 2px solid #bbb;
+}
+.membeer-title .membeer-left-title {
+  width: 50%;
+  height: 100%;
+  line-height: 70px;
+}
+.membeer-title .membeer-left-title h4 {
+  font-size: 20px;
+}
+.membeer-title .membeer-right-title {
+  width: 50%;
+  height: 100%;
+  line-height: 80px;
+  text-align: right;
+}
+.membeer-title .membeer-right-title p {
+  font-size: 13px;
+  font-weight: bold;
+}
+.memeber-line {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  border-bottom: 1px solid #dadada;
+}
+.member-left-text {
+  width: 15%;
+  height: 100%;
+  text-align: center;
+  background-color: #eeeeee;
+  font-size: 17px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.member-right-input {
+  width: 85%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.member-right-input input {
+  padding: 5px;
+  margin-left: 20px;
+  border-radius: 3px;
+  border: 1px solid #d8d8d8;
+}
+.member-right-input input[type="text"],
+.member-right-input input[type="password"] {
+  width: 42%;
+}
+.member-right-input p {
+  font-weight: bold;
+  font-size: 14px;
+  padding-left: 40px;
+}
+.member-bottom {
+  width: 100%;
+  height: 10%;
+}
+@media (max-width: 767px) {
+  .contents-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .member {
+    width: 90%;
+    height: 830px;
+    margin: 0 auto;
+  }
+  .member-top {
+    width: 100%;
+    height: 30%;
+  }
+  .member-name {
+    width: 100%;
+    height: 50%;
+    letter-spacing: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .member-name h3 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .member-step {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .member-step .step-one {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .member-step .step-one h4 {
+    font-size: 20px;
+    color: #000;
+  }
+  .member-step .step-two {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .member-step .step-two h4 {
+    font-size: 20px;
+    color: #fff;
+  }
+  .member-step .step-three {
+    width: 65%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    background-color: #a4a4a4;
+  }
+  .member-step .step-three h4 {
+    font-size: 20px;
+    color: #000;
+  }
+  .member-step .step-for {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 0%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .member-step .step-for h4 {
+    font-size: 20px;
+    color: #000;
+  }
+  .member-center {
+    width: 100%;
+    height: 58%;
+    margin-top: 5%;
+  }
+  .membeer-title {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    border-bottom: 2px solid #bbb;
+  }
+  .membeer-title .membeer-left-title {
+    width: 50%;
+    height: 100%;
+    line-height: 50px;
+  }
+  .membeer-title .membeer-left-title h4 {
+    font-size: 17px;
+  }
+  .membeer-title .membeer-right-title {
+    width: 50%;
+    height: 100%;
+    line-height: 35px;
+    text-align: right;
+  }
+  .membeer-title .membeer-right-title p {
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 60px;
+  }
+  .memeber-line {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    border-bottom: 1px solid #dadada;
+  }
+  .member-left-text {
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    background-color: #eeeeee;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .member-right-input {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .member-right-input input {
+    padding: 5px;
+    margin-left: 20px;
+    border-radius: 3px;
+    border: 1px solid #d8d8d8;
+  }
+  .member-right-input input[type="text"],
+  .member-right-input input[type="password"] {
+    width: 100%;
+  }
+  .member-right-input p {
+    font-weight: bold;
+    font-size: 11px;
+    padding-left: 40px;
+  }
+  .member-right-input label {
+    font-size: 11px;
+  }
+  .member-bottom {
+    width: 100%;
+    height: 10%;
+  }
+}
+/* 회원가입 */
+
+
+
+
+/* 가입 성공 */
+.regi-success {
+  width: 100%;
+  height: 600px;
+}
+.success-top {
+  width: 100%;
+  height: 30%;
+}
+.success-name {
+  width: 100%;
+  height: 50%;
+  letter-spacing: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.success-name h3 {
+  font-size: 25px;
+  font-weight: bold;
+}
+.success-step {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.success-step .step-one {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+}
+.success-step .step-one h4 {
+  font-size: 20px;
+  color: #000;
+}
+.success-step .step-two {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+}
+.success-step .step-two h4 {
+  font-size: 20px;
+  color: #000;
+}
+.success-step .step-three {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 4%;
+  text-align: center;
+  padding: 14px;
+}
+.success-step .step-three h4 {
+  font-size: 20px;
+  color: #000;
+}
+.success-step .step-for {
+  width: 24%;
+  border: 2px solid #dadada;
+  margin-right: 0%;
+  text-align: center;
+  padding: 14px;
+  background-color: #a4a4a4;
+}
+.success-step .step-for h4 {
+  font-size: 20px;
+  color: #fff;
+}
+.success-center {
+  width: 100%;
+  height: 55%;
+}
+.success-title {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  border-bottom: 2px solid #bbb;
+}
+.success-title .success-left-title {
+  width: 50%;
+  height: 100%;
+  line-height: 28px;
+}
+.success-title .success-left-title h4 {
+  font-size: 20px;
+}
+.success-title .success-right-title {
+  width: 50%;
+  height: 100%;
+  line-height: 35px;
+  text-align: right;
+  display: none;
+}
+.success-title .success-right-title p {
+  font-size: 13px;
+  font-weight: bold;
+}
+.success-bottom {
+  width: 100%;
+  height: 10%;
+}
+.success-btn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+}
+.success-btn input {
+  padding: 7px 25px;
+  border: 1px solid #615b5b;
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 1%;
+}
+.success-btn input:hover {
+  background-color: #615b5b;
+  color: #fff;
+  font-weight: bold;
+}
+.success-guide {
+  width: 100%;
+  height: 90%;
+  box-shadow: 0px 1px 3px grey;
+  margin-top: 40px;
+}
+.guide-icon {
+  width: 100%;
+  height: 50%;
+  text-align: center;
+}
+.guide-icon i {
+  font-size: 150px;
+  color: #35bdff;;
+}
+.guide-title {
+  width: 100%;
+  height: 20%;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.guide-title h1 {
+  font-size: 30px;
+}
+.guide-contents {
+  width: 100%;
+  height: 30%;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.guide-contents p {
+  font-size: 16px;
+  line-height: 25px;
+}
+@media (max-width: 767px) {
+  .contents-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .regi-success {
+    width: 90%;
+    height: 830px;
+    margin: 0 auto;
+  }
+  .success-top {
+    width: 100%;
+    height: 30%;
+  }
+  .success-name {
+    width: 100%;
+    height: 50%;
+    letter-spacing: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .success-name h3 {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .success-step {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .success-step .step-one {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .success-step .step-one h4 {
+    font-size: 20px;
+    color: #000;
+  }
+  .success-step .step-two {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .success-step .step-two h4 {
+    font-size: 20px;
+    color: #fff;
+  }
+  .success-step .step-three {
+    width: 24%;
+    border: 2px solid #dadada;
+    margin-right: 4%;
+    text-align: center;
+    padding: 14px;
+    display: none;
+  }
+  .success-step .step-three h4 {
+    font-size: 20px;
+    color: #000;
+  }
+  .success-step .step-for {
+    width: 65%;
+    border: 2px solid #dadada;
+    margin-right: 0%;
+    text-align: center;
+    padding: 14px;
+    background-color: #a4a4a4;
+  }
+  .success-step .step-for h4 {
+    font-size: 20px;
+    color: #fff;
+  }
+  .success-center {
+    width: 100%;
+    height: 58%;
+    margin-top: 5%;
+  }
+  .success-title {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    border-bottom: 2px solid #bbb;
+  }
+  .success-title .success-left-title {
+    width: 50%;
+    height: 100%;
+    line-height: 50px;
+  }
+  .success-title .success-left-title h4 {
+    font-size: 17px;
+  }
+  .success-title .success-right-title {
+    width: 50%;
+    height: 100%;
+    line-height: 35px;
+    text-align: right;
+  }
+  .success-title .success-right-title p {
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 60px;
+  }
+  .success-bottom {
+    width: 100%;
+    height: 10%;
+  }
+  .success-btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45px;
+  }
+  .success-btn input {
+    padding: 7px 25px;
+    border: 1px solid #615b5b;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 1%;
+  }
+  .success-btn input:hover {
+    background-color: #615b5b;
+    color: #fff;
+    font-weight: bold;
+  }
+  .success-guide {
+    width: 100%;
+    height: 90%;
+    box-shadow: 0px 1px 3px grey;
+    margin-top: 40px;
+  }
+  .guide-icon {
+    width: 100%;
+    height: 30%;
+    text-align: center;
+  }
+  .guide-icon i {
+    font-size: 120px;
+    color: #35bdff;;
+  }
+  .guide-title {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  .guide-title h1 {
+    font-size: 20px;
+  }
+  .guide-contents {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  .guide-contents p {
+    font-size: 13px;
+    line-height: 26px;
+  }
+
+
+
+}
+
+
+
+
+/* 가입 성공 */

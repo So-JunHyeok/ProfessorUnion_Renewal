@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xmlns:task="http://www.springframework.org/schema/task"
+   xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd
+      http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+      http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+<!--
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:/comp/env/jdbc/JNDI Name"/>
+		<property name="resourceRef" value="true"/>
+	</bean>
+-->
+   
+
+       <!-- <bean id="dataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url"
+            value="jdbc:mysql://professorunion.cie0v45vh8xr.ap-northeast-2.rds.amazonaws.com:3306/study?characterEncoding=UTF-8&amp;serverTimezone=UTC">
+        </property>
+        <property name="username" value="scott"></property>
+        <property name="password" value="12341234"></property>
+    </bean> -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://kpunion.cafe24.com:3306/kpunion?characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
+        <property name="username" value="kpunion"/>
+        <property name="password" value="gnqnfwp1"/>
+    </bean>
+   
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:util/SqlMapConfig.xml" />
+	</bean>
+   
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+   
+   
+   <!--
+               <tx:annotation-driven>
+         tx:annotation-driven기반 Multiple Transaction 설정이 가능하다
+         transaction-manager="default"
+         [step1]
+         <bean id="txManager1" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+         <bean id="txManager2" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+         별다른 설정이 없으면 첫번째 트랜잭션 매니저의 빈 아이디를 "transactionManager"로 인식 error
+         적어도 한개이상의 빈 아이디를 "transactionManager"로 설정
+         그리고 Service 클래스의 메서드에 선언된 @Transactional에도 (value="txManager2") 설정
+         [step2]
+         빈 아이디 두개 전부 설정한 빈 아이디로 @Transactional에도 (value="txManager?") 설정
+         
+         [tag]
+         transaction-manager : 사용할 PlatformTansactionManager 빈의 이름. 기본값(transactionManager)
+         proxy-target-class  : 클래스에 대해서 프록시를 생성할 것인지의 여부.
+          true일 경우 CGLIB를 이용해서 프록시를 생성, false인 경우 자바 다이나믹 프록시를 이용해 생성. 기본값(false)
+         order : Advice 적용 순서. 기본값( int의 최댓값 (가장 낮은 순위))
+   -->
+   
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="close">
+		<constructor-arg index="0" ref="sqlSessionFactory"/>
+	</bean>
+   
+</beans>

@@ -1,0 +1,848 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+#wrap {
+  width: 100%;
+  height: 100%;
+}
+#header {
+  width: 100%;
+  height: 100px;
+}
+#contents {
+  width: 100%;
+}
+#footer {
+  width: 100%;
+  height: 70px;
+}
+
+/* container */
+.header-container {
+  width: 100%;
+  height: 100%;
+}
+.contents-container {
+  width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+.container {
+  width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+}
+/* container */
+
+
+
+/* 상단메뉴 */
+.menu-top {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.menu-top ul {
+  margin-right: 5%;
+}
+.menu-top li{
+  list-style: none;
+  float: left;
+  margin-right: 25px;
+}
+.menu-top a{
+  color: #000;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+}
+/* 상단메뉴 */
+
+/* header */
+.menu-bottom {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: #23539b;
+}
+.menu {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu ul {
+  display: flex;
+}
+.menu .menu-li {
+  list-style: none;
+  padding: 15px;
+  display: inline-block;
+  position: relative;
+}
+.menu li .menu-a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 30px;
+  border-right: 1px solid;
+}
+.menu li a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding-right: 20px;
+}
+.menu-icon {
+  width: 15%;
+  height: 100%;
+}
+.menu-icon i {
+  color: #fff;
+  font-size: 35px;
+}
+.menu-icon a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  font-weight: bold;
+}
+/* 드롭메뉴 */
+.menu li ul {
+  display: none;
+  position: absolute;
+  top: 50px;
+  background-color: rgba(0,0,0,0.7);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.menu li ul li {
+  list-style: none;
+  padding: 15px;
+}
+.menu li ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.menu li:hover ul {
+  display: block;
+}
+.menu li ul li:hover {
+  background-color: #f2f2f2;
+}
+.menu li ul li:hover a {
+  color: #000;
+}
+/* 드롭메뉴 */
+/* 풀드롭메뉴 */
+.full-drop {
+  width: 100%;
+  height: 600px;
+  background-color: #1b73f7;
+  border-top: 4px solid #f2f2f2;
+  z-index: 9999;
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  display: none;
+}
+.full-drop-container {
+  width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+}
+.full-drop-container:first-child {
+  border-left: 1px solid #f2f2f2;
+}
+.full-menu {
+  width: 23%;
+  height: 100%;
+  border-right: 1px solid #f2f2f2;
+}
+.full-menu-title {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.full-menu-title h3 {
+  color: #fff;
+}
+.full-menu-contents {
+  width: 100%;
+  height: 90%;
+  text-align: center;
+}
+.full-menu-contents ul {
+  width: 100%;
+  height: 98%;
+  margin-top: 4%;
+}
+.full-menu-contents li {
+  width: 100%;
+  height: 12%;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.full-menu-contents li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 15px;
+}
+.full-menu-contents li:hover a {
+  color: #fff;
+  font-weight: bold;
+}
+.full-cancel {
+  width: 5%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.full-cancel i {
+  font-size: 40px;
+  color: #fff;
+}
+/* 풀드롭메뉴 */
+/* 반응형 */
+.menu-phone {
+  display: none;
+}
+.menu-phone-drop {
+  display: none;
+}
+@media(max-width: 767px)  {
+  /* 상단메뉴 */
+  .menu-top ul {
+    margin-right: 0px;
+  }
+  .menu-top li{
+    list-style: none;
+    float: left;
+    margin-right: 25px;
+  }
+  .menu-top a{
+    color: #000;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  /* 상단메뉴 */
+  .menu-bottom {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #23539b;
+  }
+  .menu {
+    width: 70%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .menu ul {
+    display: none;
+  }
+  .menu .menu-li {
+    list-style: none;
+    padding: 15px;
+    display: inline-block;
+    position: relative;
+  }
+  .menu li .menu-a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 30px;
+    border-right: 1px solid;
+  }
+  .menu li a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 20px;
+  }
+  .menu-icon {
+    width: 15%;
+    height: 100%;
+    display: none;
+  }
+  .menu-icon i {
+    color: #fff;
+    font-size: 35px;
+  }
+  .menu-icon a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    font-weight: bold;
+  }
+  /* 드롭메뉴 */
+  .menu li ul {
+    display: none;
+    position: absolute;
+    top: 50px;
+    background-color: rgba(0,0,0,0.7);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  .menu li ul li {
+    list-style: none;
+    padding: 15px;
+  }
+  .menu li ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .menu li:hover ul {
+    display: block;
+  }
+  .menu li ul li:hover {
+    background-color: #f2f2f2;
+  }
+  .menu li ul li:hover a {
+    color: #000;
+  }
+  .menu-phone {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+  .phone-icon {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .phone-icon i {
+    font-size: 40px;
+    color: #f2f2f2;
+  }
+  .phone-img {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .phone-img img {
+    width: 23%;
+    height: 85%;
+    padding-top: 5px;
+    padding-right: 5px;
+  }
+  .menu-phone-drop {
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 999;
+  }
+  .menu-phone-drop > ul {
+    width: 100%;
+    height: 100%;
+  }
+  .menu-phone-drop ul li {
+    width: 100%;
+    height: 20%;
+    list-style: none;
+    display: inline-block;
+  }
+  .menu-phone-drop li:hover ul {
+    display: block;
+  }
+  .menu-phone-drop > ul > li > a {
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #23539b;
+    line-height: 60px;
+  }
+  .menu-phone-drop li ul {
+    width: 100%;
+    display: none;
+    background-color: #f4f4f4;
+    transition: height 4s;
+  }
+  .menu-phone-drop li ul li {
+    width: 100%;
+  }
+  .menu-phone-drop li > ul > li > a {
+    color: #000;
+    font-size: 15px;
+    font-weight: normal;
+    text-decoration: none;
+    padding: 1px;
+    line-height: 35px;
+  }
+}
+/* 반응형 */
+/* header */
+
+
+
+/* contents */
+.login-contents {
+  width: 100%;
+  height: 450px;
+  margin-top: 100px;
+  margin-bottom: 175px;
+  border: 10px solid #cacaca;
+}
+.login-top {
+  width: 100%;
+  height: 10%;
+  border-bottom: 2px solid #cacaca;
+  padding: 5px 0px;
+}
+.login-top h2 {
+  padding-left: 30px;
+  padding-top: 10px;
+}
+.login-center {
+  width: 100%;
+  height: 50%;
+  padding: 35px 0px;
+  display: flex;
+}
+.login-img {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.error-content{
+	margin-left: 40px;
+	margin-top: 60px;
+}
+.error-img{
+	margin-left: 150px;
+}
+.error-img img{
+	width: 300px;
+	height: 300px;
+}
+.errorfont{
+	font-size: 30px;
+}
+.errorfont2{
+	font-size: 30px;
+	color: #ff5e00;
+	margin-bottom: 10px;
+}
+.errorfont2 {
+	font-weight: bold;
+}
+.errorfont3{
+	margin-top: 40px;
+}
+.login-img img {
+  width: 70%;
+  height: 100%;
+}
+.login-input {
+  width: 70%;
+  height: 100%;
+  display: flex;
+}
+.login {
+  width: 70%;
+  height: 100%;
+}
+.login-id-box {
+  width: 100%;
+  display: flex;
+  padding-top: 70px;
+  padding-bottom: 20px;
+}
+.login-pw-box {
+  width: 100%;
+  display: flex;
+}
+.login-id-title {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-id {
+  width: 85%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.login-pw-title {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-pw {
+  width: 85%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.login .login-id input,
+.login .login-pw input {
+  width: 85%;
+  padding: 10px;
+  border: 1px solid #d8d8d8;
+}
+.login-btn {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.login-btn-phone {
+  display: none;
+}
+.login-btn input {
+  background-color: #23539b;
+  padding: 30px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+}
+.login-bottom {
+  width: 100%;
+  height: 40%;
+  border: 1px solid #a6a2a2;
+  background-color: #efeeee;
+  display: flex;
+}
+.login-bottom-phone {
+  display: none;
+}
+.login-left {
+  width: 50%;
+  border-right: 1px solid #b3b2b2;
+}
+.login-right {
+  width: 50%;
+}
+.login-memory-text {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-memory-text p {
+  font-size: 20px;
+}
+.login-memory-btn {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-memory-btn1 {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-memory-btn button {
+  padding: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #23539b;
+  border: none;
+  border-radius: 5px;
+  margin: 0px 20px;
+}
+.login-memory-btn1 button {
+  padding: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #23539b;
+  border: none;
+  border-radius: 5px;
+}
+@media (max-width: 767px) {
+  .contents-container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 40px;
+    margin-bottom: 40px;
+  }
+  .login-contents {
+    width: 90%;
+    height: 450px;
+    margin-top: 100px;
+    margin-bottom: 175px;
+    margin: 0 auto;
+  }
+  .login-top {
+    width: 100%;
+    height: 10%;
+    border-bottom: 1px solid #000;
+    padding: 5px 0px;
+  }
+  .login-top h2 {
+    padding-left: 30px;
+  }
+  .login-center {
+    width: 100%;
+    height: 50%;
+    padding: 0px;
+    display: block;
+  }
+  .login-img {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    display: none;
+  }
+  .login-img img {
+    width: 70%;
+    height: 100%;
+  }
+  .login-input {
+    width: 100%;
+    height: 80%;
+    display: flex;
+  }
+  .login {
+    width: 100%;
+    height: 100%;
+  }
+  .login-id-box {
+    width: 100%;
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+  .login-pw-box {
+    width: 100%;
+    display: flex;
+  }
+  .login-id-title {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
+  .login-id {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .login-pw-title {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
+  .login-pw {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .login .login-id input,
+  .login .login-pw input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d8d8d8;
+  }
+  .login-btn {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    display: none;
+  }
+  .login-btn-phone {
+    width: 100%;
+    height: 20%;
+    display: block;
+  }
+  .login-btn-phone input {
+    width: 100%;
+    height: 100%;
+    background-color: #23539b;
+    padding: 0px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+  }
+  .login-btn input {
+    background-color: #23539b;
+    padding: 30px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+  }
+  .login-bottom {
+    width: 100%;
+    height: 40%;
+    border: 1px solid #a6a2a2;
+    background-color: #efeeee;
+    display: flex;
+    display: none;
+  }
+  .login-bottom-phone {
+    display: block;
+    width: 100%;
+    height: 50%;
+    margin-top: 35px;
+  }
+  .login-left {
+    width: 50%;
+    border-right: 1px solid #b3b2b2;
+  }
+  .login-left-phone {
+    width: 100%;
+    height: 20%;
+    border-right: 0px solid;
+    padding-top: 15px;
+  }
+  .login-right {
+    width: 50%;
+  }
+  .login-right-phone {
+    width: 100%;
+    height: 20%;
+  }
+  .login-memory-text {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-memory-text p {
+    font-size: 20px;
+  }
+  .login-memory-btn {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-memory-btn-phone {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-memory-btn1 {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-memory-btn1-phone {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-memory-btn button {
+    padding: 10px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #23539b;
+    border: none;
+    border-radius: 5px;
+    margin: 0px 20px;
+  }
+  .login-memory-btn-phone button {
+    width: 47%;
+    height: 100%;
+    padding: 0px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #58595b;
+    border: none;
+    border-radius: 0px;
+  }
+  .login-memory-btn-phone button:nth-child(1) {
+    margin-right: 5%;
+  }
+  .login-memory-btn1 button {
+    padding: 10px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #23539b;
+    border: none;
+    border-radius: 5px;
+  }
+  .login-memory-btn1-phone button {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #fff;
+    border: 1px solid #dadada;
+    border-radius: 0px;
+  }
+}
+/* contents */
+
+
+/* footer */
+.footer-contents {
+  width: 100%;
+  height: 100%;
+}
+.footer-contents p {
+  color: #BDBDBD;
+  font-size: 16px;
+}
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .footer-contents p {
+    color: #BDBDBD;
+    font-size: 10px;
+  }
+}
+/* footer */

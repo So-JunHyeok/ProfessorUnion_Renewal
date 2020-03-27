@@ -1,0 +1,13 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=branch 'jsw' of https\://github.com/rumor1993/ProfessorUnion.git
+eclipse.preferences.version=1
+encoding//src/main/java/com/kpu/professorunion/controller/AgonyAction.java=UTF-8
+encoding//src/main/java/com/kpu/professorunion/controller/BoardAction.java=UTF-8
+encoding//src/main/java/com/kpu/professorunion/controller/BranchBoardAction.java=UTF-8
+encoding//src/main/java/com/kpu/professorunion/controller/ConfigAction.java=UTF-8
+encoding//src/main/java/com/kpu/professorunion/controller/MainAction.java=UTF-8
+encoding//src/main/java/com/kpu/professorunion/dao/LoginAuthenticationService.java=UTF-8
+encoding//src/main/webapp/resources=UTF-8
+encoding//src/main/webapp/resources/css/agonyUesrList.css=UTF-8
+encoding//src/main/webapp/resources/css/branch.css=UTF-8

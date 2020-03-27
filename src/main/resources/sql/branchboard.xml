@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BRANCHBOARD">
+	<insert id="insertBoard" parameterType="branch">
+		insert 
+		into 
+		branchboard(
+		branchArea,
+		branchName,
+		branchPosition,
+		branchUni,
+		branchMail,
+		branchKind
+		)
+		values(
+		#{branchArea},
+		#{branchName},
+		#{branchPosition},
+		#{branchUni},
+		#{branchMail},
+		#{branchKind}
+		)
+		
+	</insert>
+	
+	<select id="selectBoard" resultType="branch" parameterType="Map">
+		select * from branchboard WHERE branchKind = #{branchKind} order by branchNum asc
+		 limit #{paging}, #{countList}
+	</select>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete from branchboard where branchNum = #{branchNum}
+	</delete>
+	
+	<select id="getcountlist" resultType="int" parameterType="Map">
+		select count(*) from branchboard WHERE branchKind = #{branchKind}
+	</select>
+	
+	<update id="updateBoard" parameterType="branch">
+		update branchboard set
+		branchArea = #{branchArea},
+		branchPosition = #{branchPosition},
+		branchName = #{branchName},
+		branchUni = #{branchUni},
+		branchMail = #{branchMail},
+		branchKind = #{branchKind}
+		where 
+		branchNum = #{branchNum}
+	</update>
+	
+	<select id="selectbranchboard" resultType="branch" parameterType="int">
+		select * from branchboard where branchNum = #{b}
+	</select>
+
+</mapper>

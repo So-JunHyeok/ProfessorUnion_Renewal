@@ -1,0 +1,103 @@
+
+.contents-container {
+  width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 40px;
+  display: flex;
+}
+.container {
+  width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.list-content {
+  width: 80%;
+  margin-left: 4%;
+  margin-bottom: 40px;
+}
+.list-title {
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.list-table {
+    width: 100%;
+  }
+  .list-table table {
+    width: 94%;
+    border-collapse: collapse;
+  }
+
+ 
+  .list-table th {
+    text-align: center;
+    padding: 10px 0px;
+    width: 1%;
+    font-size: 14px;
+  }
+  .list-table td {
+    text-align: center;
+    padding: 7px 0px;
+    font-size: 12px;
+     
+  }
+
+  .list-table tr:nth-child(2n) {
+    background-color: #f2f2f2;
+  }
+  .list-table td a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  
+ <!-- 게시판테이블 -->
+  
+  
+  
+  .list-table1 {
+    width: 100%;
+  }
+  .list-table1 table {
+    width: 94%;
+    border-collapse: collapse;
+  }
+
+
+.list-table1 select{
+	   font-size: 12px; 
+    }
+    
+    
+.list-table select{
+	   font-size: 12px; 
+    }    
+  
+  
+  .list-table1 th {
+    text-align: center;
+    padding: 10px 0px;
+    width: 130px;
+    font-size: 14px;
+  }
+  .list-table1 td {
+    text-align: center;
+    padding: 20px 0px;
+    font-size: 12px;
+    width: 10%;
+    height: 10%;
+  }
+  .list-table1 tr:nth-child(2n) {
+    background-color: #f2f2f2;
+  }
+  .list-table1 td a {
+    text-decoration: none;
+    color: #000;
+  }
+<<<<<<< HEAD
+  
+=======
+  
+>>>>>>> refs/remotes/origin/sjh18-11-21so

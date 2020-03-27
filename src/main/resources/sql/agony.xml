@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AGONY1">
+	<insert id="insertagony" parameterType="agony" >
+		 insert into Agony(
+		 AID,
+		 ANAME,
+		 AUTHORITY,
+		 AUNIVERSITY,
+		 ATITLE,
+		 ACONTENT,
+		 ADATE,
+		 AREAD 
+		 )
+		 values(
+		 #{aid},
+		 #{aname},
+		 #{authority},
+		 #{auniversity},
+		 #{atitle},
+		 #{acontent},
+		 sysdate(),
+		 #{aread}
+		 )
+	</insert>
+	<insert id="insertcomment" parameterType="comment">
+		insert into AgonyComment(
+		ANUM,
+		CID,
+		CCONTENT,
+		CDATE
+		 )
+		 values(
+		 #{anum},
+		 #{cid},
+		 #{ccontent},
+		 sysdate()
+		 )
+	</insert>
+	
+ 	<select id="selectcount" resultType="Int" parameterType="agony">
+		select count(*) from Agony where aread='N'
+	</select>
+	
+	<select id="selectagonycriteria" resultType="agony" parameterType="Map">
+		select * from Agony
+			<where>
+			<if test="searchOption==''">
+ 			</if>					
+				<if test="searchOption=='titlecontent'">
+				and (ATITLE like '%${keyword}%' or ACONTENT like '%${keyword}%')
+ 				</if>					
+				<if test="searchOption=='title'">
+				and ATITLE like '%${keyword}%'
+ 				</if>					
+				<if test="searchOption=='content'">
+				and ACONTENT like '%${keyword}%' 
+ 				</if>					
+				<if test="searchOption=='writer'">
+				and ANAME like '%${keyword}%'
+ 				</if>		
+			</where>
+		order by ANUM DESC, ADATE DESC 
+		Limit #{criteria.pageStart}, #{criteria.perPageNum};
+	</select>
+	<select id="selectagonyuserlist" resultType="agony" parameterType="criteria">
+		select
+		*
+		from
+		Agony
+		where
+		AID = #{aid}
+		order by
+		anum desc,
+		adate asc
+		Limit #{pageStart}, #{perPageNum};
+	</select>
+	
+	<select id="selectagonytotalcount" resultType="int" parameterType="Map">
+		select count(*) from Agony
+					<where>
+			<if test="searchOption==''">
+ 			</if>					
+				<if test="searchOption=='titlecontent'">
+				and (atitle like '%${keyword}%' or acontent like '%${keyword}%')
+ 				</if>					
+				<if test="searchOption=='title'">
+				and atitle like '%${keyword}%'
+ 				</if>					
+				<if test="searchOption=='content'">
+				and acontent like '%${keyword}%' 
+ 				</if>					
+				<if test="searchOption=='writer'">
+				and aname like '%${keyword}%'
+ 				</if>		
+			</where>
+	</select>
+	<select id="selectagonyuserlisttotalcount" resultType="int" parameterType="criteria">
+		select count(*) from
+		Agony where aid=#{aid}
+	</select>
+	
+	<select id="selectagonydetail" resultType="agony" parameterType="int">
+		select * from Agony where anum=#{a};
+	</select>
+	
+	<select id="selectcommentlist" resultType="comment" parameterType="int">
+		select * from AgonyComment where anum = #{anum}
+	</select>
+	
+	<delete id="deleteagony" parameterType="int">
+		delete from Agony where anum=#{num};
+	</delete>
+	
+	<delete id="deletecomment" parameterType="Map">
+		delete from AgonyComment where ANUM=#{anum} and CNUM = #{cnum};
+	</delete>
+	
+	<update id="updateagony" parameterType="agony">
+		update Agony set ATITLE=#{atitle}, ACONTENT=#{acontent}, AUNIVERSITY=#{auniversity}, ANAME=#{aname} where ANUM=#{anum};
+	</update>
+	
+	<update id="updateread" parameterType="int">
+		update Agony set aread = 'Y' where anum = #{anum}
+	</update>
+	
+		<select id="newagonylist" resultType="agony" parameterType= "int">
+		select
+		*
+		from
+		Agony
+		order by
+		anum desc,
+		adate desc 
+		Limit #{count}
+	
+	</select>
+	
+</mapper>

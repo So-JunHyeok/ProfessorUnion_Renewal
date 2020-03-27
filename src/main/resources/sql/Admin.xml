@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ADMIN">
+	<update id="bannerupload" parameterType = "MainImgUplod" >
+	update main_img_file
+	set cf_source = #{cf_source},
+	cf_file = #{cf_file},
+	cf_filesize = #{cf_filesize} 
+	where cf_path = #{cf_path}
+	</update>
+	
+	
+	<select id="mainViewImgapply" parameterType="String" resultType="String">
+	select cf_file from main_img_file  
+	where cf_path = #{cf_path}
+	</select>
+	
+	
+	<update id="configupdate" parameterType="AdminConfig">
+		update g4_config set
+		cf_title = #{cf_title},
+		cf_filter = #{cf_filter}
+	</update>
+	
+	<select id = "configapply" resultType="AdminConfig">
+		select 
+		cf_use_copy_log,
+		cf_title,
+		cf_admin,
+		cf_popular_del,
+		cf_open_modify,
+		cf_login_minutes,
+	 	cf_visit_del,
+	  	cf_new_rows,
+	   	cf_cut_name,
+	    cf_nick_modify,
+	    cf_filter,
+	    cf_intercept_ip
+		from g4_config
+	</select>
+	
+	<insert id="visitrecord" parameterType="Map">
+		insert into g4_visit(
+		vi_ip,
+		vi_date,
+		vi_time,
+		vi_referer,
+		vi_agent
+		)
+		values(
+		#{vi_ip},
+		#{vi_date},
+		#{vi_time},
+		#{vi_referer},
+		#{vi_agent}
+		)
+	</insert>
+	
+	<select id="visitselect" parameterType="Map" resultType="VisitrecordBean">
+		select * from g4_visit
+		order by vi_id asc
+		limit #{StarRow},#{PageSize}
+	</select>
+	
+	
+	<select id="visitall" parameterType="Map" resultType="String">
+		select vi_date from g4_visit
+		where vi_ip = #{vi_ip} AND vi_date = #{vi_date}
+	</select>
+	
+	
+	<select id="visitcount" resultType="int">
+		select count(*) from g4_visit
+	</select>
+	
+	
+	<update id="setboardlevel" parameterType="BoardLevel">
+		
+		update g4_board set
+		
+		bo_subject = #{bo_subject},
+		bo_list_level = #{bo_list_level},
+		bo_read_level = #{bo_read_level},
+		bo_write_level = #{bo_write_level},
+		bo_reply_level = #{bo_reply_level},
+		bo_comment_level = #{bo_comment_level},
+		bo_upload_level = #{bo_upload_level},
+		bo_download_level = #{bo_download_level}
+		where bo_table = #{bo_table}
+	
+	
+	</update>
+	
+	
+	<select id="getboardlevel" parameterType="String" resultType="BoardLevel">
+		select bo_subject, bo_list_level, bo_read_level, bo_write_level, bo_reply_level, 
+		bo_comment_level, bo_upload_level, bo_download_level
+		from g4_board
+		where bo_table = #{bo_table}
+	
+	</select>
+	
+	
+		<select id="getboardlevelList" parameterType="Map" resultType="BoardLevel">
+		select bo_table, bo_subject, bo_list_level, bo_read_level, bo_write_level, bo_reply_level, 
+		bo_comment_level, bo_upload_level, bo_download_level
+		from g4_board
+		limit #{StarRow},#{PageSize}
+	
+	</select>
+	
+	
+</mapper>

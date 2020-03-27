@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MEMBER">
+	<!-- 회원가입 -->
+	<insert id="member_join" parameterType="member">
+		INSERT
+		INTO g4_member(
+		mb_id,
+		mb_password,
+		mb_nick,
+		mb_email,
+		mb_name,
+		mb_birth,
+		mb_sex,
+		mb_level,
+		mb_signature,
+		mb_memo,
+		mb_lost_certify,
+		mb_profile,
+		mb_mailling,
+		mb_open
+		)
+		VALUES(
+		#{mb_id},
+		#{mb_password},
+		#{mb_nick},
+		#{mb_email},
+		#{mb_name},
+		#{mb_birth},
+		#{mb_sex},
+		#{mb_level},
+		"",
+		"",
+		"",
+		"",
+		#{mb_mailling},
+		#{mb_open}
+		)
+	</insert>
+	<!-- 로그인 -->
+	<select id="login_check" parameterType="String" resultType="member">
+		SELECT
+		mb_id as mb_id,
+		mb_password as mb_password,
+		mb_email as mb_email,
+		mb_level as mb_level
+		FROM g4_member
+		WHERE mb_id = #{mb_id} 
+	</select>
+	
+	<!-- 아이디 찾기 -->
+	<select id="id_find" parameterType="String" resultType="member">
+		SELECT
+		mb_id as mb_id,
+		mb_name as mb_name
+		FROM g4_member
+		WHERE mb_email = #{mb_email} 
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="pass_find" parameterType="String" resultType="member">
+		SELECT
+		mb_id as mb_id,
+		mb_email as mb_email
+		FROM g4_member
+		WHERE mb_id = #{mb_id} 
+	</select>
+	
+	<!-- 닉네임 중복 -->
+	<select id="nick_overlap" parameterType="String" resultType="String">
+		SELECT
+		mb_id as mb_id
+		FROM g4_member
+		WHERE mb_nick = #{mb_nick} 
+	</select>
+	
+		<!-- My Page -->
+	<select id="myinfo" parameterType="String" resultType="member">
+		SELECT
+		mb_id as mb_id,
+		mb_name as mb_name,
+		mb_nick as mb_nick,
+		mb_password as mb_password,
+		mb_email as mb_email,
+		mb_level as mb_level,
+		mb_mailling as mb_mailling,
+		mb_open as mb_open,
+		mb_profile as mb_profile
+		FROM g4_member
+		WHERE mb_id = #{mb_id} 
+	</select>
+	
+	<!-- 임시비밀번호 발급 -->
+	<update id="temporary_pass" parameterType="member">
+		UPDATE
+		g4_member
+		SET mb_password = #{mb_password}
+		WHERE mb_id = #{mb_id}
+	</update>
+	
+	<!-- 메일 수신 -->
+	<update id="mailling" parameterType="member">
+		UPDATE
+		g4_member
+		SET mb_mailling = #{mb_mailling}
+		WHERE mb_id = #{mb_id}
+	</update>
+	
+	<!-- 정보 공개 -->
+	<update id="open" parameterType="member">
+		UPDATE
+		g4_member
+		SET mb_open = #{mb_open}
+		WHERE mb_id = #{mb_id}
+	</update>
+	
+	<!-- 정보 수정 -->
+	<update id="modify" parameterType="member">
+		UPDATE
+		g4_member
+		SET mb_name = #{mb_name},
+		mb_nick = #{mb_nick},
+		mb_email = #{mb_email},
+		mb_email_certify = '0000-00-00 00:00:00'
+		WHERE mb_id = #{mb_id}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<update id="delete" parameterType="member">
+		UPDATE
+		g4_member
+		SET mb_leave_date = #{mb_leave_date},
+		mb_password = '',
+		mb_email = ''
+		WHERE mb_id = #{mb_id}
+	</update>
+	
+	<!-- 로그인 ip, 시간 -->
+	<update id="login" parameterType="member">
+		UPDATE
+		g4_member
+		SET mb_login_ip = #{mb_login_ip},
+		mb_today_login = #{mb_today_login}
+		WHERE mb_id = #{mb_id}
+	</update>
+	
+	<!-- 관리자 회원 탈퇴-->
+	<delete id="admindelete" parameterType="member">
+		delete from g4_member where mb_id = #{mb_id}
+	</delete>
+	
+	<!-- 승우야 회원정보 불러오는 sql문 만든다.  -->
+	<!-- 관리자 회원목록보기  -->
+	
+	
+	
+	
+	<delete id="admindOneelete" parameterType="String">
+		delete from g4_member where mb_id = #{mb_id}
+	</delete>
+	
+	
+	
+	<select id= "memberlist" parameterType="Map" resultType="member">
+		SELECT
+		mb_no,
+		mb_id,
+		mb_name,
+		mb_nick,
+		mb_level,
+		mb_open,
+		mb_intercept_date
+		FROM g4_member
+		<where>
+		<if test="searchOption==''">
+ 		</if>
+ 		<if test="searchOption=='idsearch'">
+					and mb_id like '%${keyword}%'
+ 				</if>					
+				<if test="searchOption=='namesearch'">
+					and mb_name like '%${keyword}%'
+ 				</if>					
+				<if test="searchOption=='nick'">
+					and mb_nick like '%${keyword}%'
+ 				</if>							
+		</where>
+		order by mb_no asc
+		limit #{StarRow},#{PageSize}
+
+	</select>
+	<!-- 관리자 회원목록 개수 -->
+	
+	<select id="membercount" resultType="int" >
+	SELECT COUNT(*) FROM g4_member
+	</select>
+	
+	
+	<update id="adminmembermodify" parameterType="Map">
+	UPDATE
+		g4_member
+		SET mb_level = #{mb_level},
+		mb_open = #{mb_open},
+		mb_intercept_date = #{mb_intercept_date}
+		WHERE mb_id = #{mb_id}
+	</update>
+	
+	
+
+		
+
+	
+	
+	
+	
+	
+	
+	
+</mapper>

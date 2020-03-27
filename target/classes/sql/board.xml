@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BOARD1">
+	
+	<!-- 총 게시글 수 -->
+	<select id="getCountList" resultType="int" parameterType="Map">
+		select count(*) from g4_write_${bo_table} 
+		<where>
+					wr_is_comment = 0 
+			<if test="searchOption==''">
+ 			</if>					
+				<if test="searchOption=='titlecontent'">
+					and (wr_subject like '%${keyword}%' or wr_content like '%${keyword}%') and wr_option not in ('noti')
+ 				</if>					
+				<if test="searchOption=='title'">
+					and wr_subject like '%${keyword}%' and wr_option not in ('noti')
+ 				</if>					
+				<if test="searchOption=='content'">
+					and wr_content like '%${keyword}%' and wr_option not in ('noti')
+ 				</if>					
+				<if test="searchOption=='writer'">
+					and mb_id like '%${keyword}%'  and wr_option not in ('noti')
+ 				</if>		
+			</where>
+
+	</select>
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	<select id="getfileChecklist" parameterType="Map" resultType="String">
+		select f.wr_id 
+		from g4_write_${bo_table} n left join (select distinct wr_id, bo_table from g4_board_file) as f on n.wr_id = f.wr_id and "${bo_table}" = f.bo_table 
+		<where>
+					wr_is_comment = 0 
+			<if test="searchOption==''">
+ 			</if>					
+				<if test="searchOption=='titlecontent'">
+				and (wr_subject like '%${keyword}%' or wr_content like '%${keyword}%') and wr_option not in ('noti')
+ 				</if>					
+				<if test="searchOption=='title'">
+				and wr_subject like '%${keyword}%' and wr_option not in ('noti')
+ 				</if>					
+				<if test="searchOption=='content'">
+				and wr_content like '%${keyword}%' and wr_option not in ('noti')
+ 				</if>					
+				<if test="searchOption=='writer'">
+				and mb_id like '%${keyword}%'  and wr_option not in ('noti')
+ 				</if>		
+			</where>
+			order by wr_parent desc, wr_datetime asc
+			limit #{paging}, #{countpage} 
+	</select>
+	
+	
+		<select id="getfileChecklist_head" parameterType="Map" resultType="String">
+		select f.wr_id  
+		from (select * from g4_write_${bo_table} where wr_option = "noti") as n left join(select distinct wr_id, bo_table from g4_board_file) as f on n.wr_id = f.wr_id and "${bo_table}" = f.bo_table
+		<where>
+					wr_is_comment = 0 
+		order by wr_parent desc, wr_datetime asc			
+	</where>
+	</select>
+	
+	
+		<!-- select * from g4_write_#{bo_table} where wr_is_comment = 0 order by wr_datetime desc 4 -->
+	<select id="getboardNoticehead" parameterType="Map" resultType="board">
+		select * from g4_write_${bo_table} where wr_option = 'noti' order by wr_datetime desc limit 5
+	</select>
+	
+	
+	
+	<!-- wr_option = 'secret' || 'normal' -->
+	<select id="getBoardList" resultType="board" parameterType="Map">
+			select * from g4_write_${bo_table}
+			<where>
+					wr_is_comment = 0 
+			<if test="searchOption==''">
+ 			</if>					
+				<if test="searchOption=='titlecontent'">
+					and (wr_subject like '%${keyword}%' or wr_content like '%${keyword}%') 
+					and wr_option not in ('noti')
+ 				</if>					
+				<if test="searchOption=='title'">
+					and wr_subject like '%${keyword}%' and wr_option not in ('noti')
+ 				</if>					
+				<if test="searchOption=='content'">
+					and wr_content like '%${keyword}%' and wr_option not in ('noti')
+ 				</if>					
+				<if test="searchOption=='writer'">
+					and mb_id like '%${keyword}%'  and wr_option not in ('noti')
+ 				</if>		
+			</where>
+			order by wr_parent desc, wr_datetime asc
+			limit #{paging}, #{countpage} 
+
+	</select>
+	
+	<select id="getFileName" parameterType="Map" resultType="boardfile">
+		select * from g4_board_file where wr_id = #{wr_id} and bf_file = #{filename} and bo_table = #{bo_table}
+	</select>
+	
+	<select id="getFileNames" parameterType="Map" resultType="boardfile">
+		select * from g4_board_file where wr_id = #{wr_id} and bo_table = #{bo_table}
+	</select>
+	
+	<select id="getBoardCont" resultType="board" parameterType="Map">
+		select * from g4_write_${bo_table}
+		where wr_id= #{wr_id}
+	</select>
+	
+	<update id="setHitBoard" parameterType="Map">
+		update g4_write_${bo_table}
+		set
+		wr_hit = wr_hit + 1 
+		where wr_id = #{wr_id}
+	</update>
+	
+	 <select id="getCommentList" resultType="board" parameterType="Map">
+        select * from g4_write_${bo_table}  where wr_parent = #{wr_parent} and wr_is_comment = 1 and wr_reply = #{wr_reply} order by wr_comment , wr_comment_reply
+     </select>
+	
+	 <insert id="insertBoard" parameterType="Map">
+		<![CDATA[
+		insert g4_write_${bo_table}(
+		 wr_id, wr_subject, wr_content,  wr_parent, mb_id, wr_name,
+		 wr_datetime, wr_link1, wr_link2, wr_hit, wr_option, wr_password
+		 )
+		 values(
+		 0, #{model.wr_subject}, #{model.wr_content},  #{model.wr_id}, #{model.mb_id}, #{model.wr_name},
+		 sysdate() , #{model.wr_link1}, #{model.wr_link2}, #{model.wr_hit}, #{model.wr_option}, #{model.wr_password}
+		 )
+		 ]]>
+		 
+		 
+		 
+	 </insert>
+	 
+	 
+	 <insert id="insertReplyBoard" parameterType="Map">
+		insert g4_write_${bo_table} 
+		(
+		 wr_id, wr_subject, wr_content, wr_parent, mb_id, wr_reply,
+		 wr_datetime, wr_link1, wr_link2, wr_hit
+		 )
+		 values
+		 (
+		 0, 
+		 #{board.wr_subject}, 
+		 #{board.wr_content}, 
+		 #{board.wr_parent}, 
+		 #{board.mb_id}, 
+		 #{board.wr_reply},
+		 now(), 
+		 #{board.wr_link1}, 
+		 #{board.wr_link2}, 
+		 #{board.wr_hit}
+		 )
+	 </insert>
+	
+	 <insert id="insertFileUpload" parameterType="Map">
+		insert into g4_board_file (
+		bo_table, wr_id, bf_no,
+		bf_source, bf_file, bf_download, bf_content, bf_filesize,
+		bf_width, bf_height, bf_datetime
+		)
+		values(
+		#{bo_table}, #{wr_id}, #{bf_no},
+		#{boardfile.bf_source}, #{boardfile.bf_file}, 0, '', #{boardfile.bf_filesize},
+		#{boardfile.bf_width}, #{boardfile.bf_height}, sysdate()
+		)
+	 </insert>
+	
+	 <update id="setBoardParent" parameterType="Map">
+    	update g4_write_${bo_table} set wr_parent = #{wr_id} where wr_id = #{wr_id}
+     </update>
+     
+     <update id="setBoardFileHit" parameterType="Map">
+		update g4_board_file 
+		set bf_download = bf_download + 1 
+		where wr_id = #{wr_id} and bo_table = #{boardName}
+	</update>
+	
+	<select id="likeOverLapCheck" parameterType="Map" resultType="boardgood" >
+		select * from g4_board_good
+		where bo_table = #{bo_table} and 
+		wr_id = #{wr_id} and mb_id = #{mb_id} and bg_flag = #{bg_flag}
+	</select>
+    
+    <insert id="insertBoardGood" parameterType="Map">
+		insert into g4_board_good(
+			bg_id, bo_table, wr_id,
+			mb_id, bg_flag, bg_datetime
+		)
+		values(
+			0, #{bo_table}, #{wr_id},
+			#{mb_id}, #{bg_flag}, sysdate()
+		)
+	</insert>
+	
+	<update id="updateBoardWriteGood" parameterType="Map">
+		update g4_write_${bo_table}
+		set wr_good = wr_good + 1
+		where wr_id = #{wr_id} 
+	</update>
+	
+	<update id="updateGoodCancel" parameterType="Map">
+		update g4_write_${bo_table}
+		set wr_good = wr_good - 1
+		where wr_id = #{wr_id} 
+	</update>
+	
+	<delete id="deleteLike" parameterType="Map">
+		delete from g4_board_good where 
+		wr_id = #{wr_id} and
+		bo_table = #{bo_table} and
+		mb_id = #{mb_id}
+	</delete>
+	
+	<update id="updateBoardWritenoGood" parameterType="Map">
+		update g4_write_${bo_table}
+		set wr_nogood = wr_nogood + 1
+		where wr_id = #{wr_id} 
+	</update>
+	
+	<update id="updatenoGoodCancel" parameterType="int">
+		update g4_write_${bo_table}
+		set wr_nogood = wr_nogood - 1
+		where wr_id = #{wr_id} 
+	</update>
+	
+	<select id="getModifyBoard"  resultType="board" parameterType="Map">
+		select * from g4_write_${bo_table}
+		where wr_id= #{wr_id}
+	</select>
+	
+	<update id="modifyBoard" parameterType="Map">
+		update g4_write_${bo_table}
+		 set wr_subject=#{board.wr_subject}, 
+		 wr_content=#{board.wr_content} 
+		 where wr_id=#{wr_id}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="Map">
+	<![CDATA[
+		delete from g4_write_${bo_table} where wr_id=#{wr_id} and mb_id = #{mb_id}
+		 ]]>
+	</delete>
+	
+	<delete id="deleteFileBoard" parameterType="Map">
+		delete from g4_board_file where wr_id=#{wr_id}
+	</delete>
+	
+	<select id="getMaxComment" parameterType="Map" resultType="int">
+		select max(wr_comment) from g4_write_${bo_table} where wr_parent = #{board.wr_parent}
+	</select>
+	
+	<update id="updateWr_1" parameterType="Map">
+    	update g4_write_${bo_table} set wr_1 = ${wr1}+1 where wr_id = #{board.wr_id}
+    </update>
+    
+    <select id="getWr_1" parameterType="Map" resultType="int">
+    	select wr_1 from g4_write_${bo_table} where wr_id = #{board.wr_id}
+    </select>
+    
+	<select id="getReplyLevel" parameterType="Map" resultType="String">
+		select wr_comment_reply from g4_write_${bo_table} where wr_id = #{board.wr_id}
+	</select>
+	
+	<select id="getBoardReplyLevel" parameterType="Map" resultType="String">
+		select wr_reply from g4_write_${bo_table} where wr_id = #{board.wr_id}
+	</select>
+	
+	<insert id="commentInsert" parameterType="Map">
+        insert into g4_write_${bo_table}
+        ( 
+        wr_parent, wr_is_comment, mb_id, wr_reply,
+        wr_comment, wr_comment_reply , wr_content, wr_datetime,
+  		wr_link1, wr_link2
+        )
+        values(
+         #{board.wr_parent}, #{board.wr_is_comment}, #{board.mb_id}, #{board.wr_reply},
+        #{board.wr_comment}, #{board.wr_comment_reply}, #{board.wr_content}, now(),
+        #{board.wr_link1}, #{board.wr_link2}
+        ) 
+    </insert>
+    
+    <select id="getReplyComment" parameterType="Map" resultType="int">
+    	 select wr_comment from g4_write_${bo_table}  where wr_id = #{board.wr_id}
+    </select>
+    
+    <select id="getMaxCommentCount" resultType="int" parameterType="Map">
+    		select count(wr_comment) from g4_write_${bo_table} where wr_parent = #{board.wr_parent} and wr_reply = #{reply} and wr_is_comment = 1  
+    </select>
+    	
+    
+    <update id="updateBoardWrComment" parameterType="Map" >    	  
+    	update g4_write_${bo_table} set wr_comment = #{commentcount} where wr_parent = #{board.wr_parent} and wr_reply = #{reply} and wr_is_comment=0
+    </update>
+	
+	
+	
+
+
+	
+	<select id="getCurWrid" resultType="board" parameterType="HashMap">
+			select * from g4_write_${bo_table} order by wr_datetime desc limit 1
+	</select>
+	
+	<update id="hitnoticeboard" parameterType="int">
+		update g4_write_notice 
+		set
+		wr_hit = wr_hit + 1 
+		where wr_id = #{wr_id}
+	</update>
+	
+	<update id="hitdownload" parameterType="int">
+		update g4_board_file 
+		set
+		bf_download = bf_download + 1 
+		where wr_id = #{wr_id}
+	</update>
+	
+	<update id="boardgood" parameterType="int">
+		update g4_write_notice 
+		set
+		wr_good = wr_good + 1 
+		where wr_id = #{wr_id}
+	</update>
+	<update id="boardnogood" parameterType="int">
+		update g4_write_notice 
+		set
+		wr_nogood = wr_nogood + 1 
+		where wr_id = #{wr_id}
+	</update>
+	
+	
+	
+
+	
+	<update id="updatenotice" parameterType="board">
+		update g4_write_notice
+		 set wr_subject=#{wr_subject}, 
+		 wr_content=#{wr_content} 
+		 where wr_id=#{wr_id}
+	</update>
+	
+	
+	
+	<select id="commentCount" resultType="int">
+        select
+            count(*)
+        from g4_write_notice
+    </select>
+    
+
+    
+    <select id="getBoardInfo" parameterType="int" resultType="board">
+    	select * from g4_write_notice where wr_id = #{wr_id}
+    </select>
+    
+    
+
+    
+    <update id="commentUpdate" parameterType="board">
+        update comment
+            set
+            content = #{content}
+        where cno = #{cno}
+    </update>
+    
+    <delete id="commentDelete" parameterType="int">
+        delete from comment where cno = #{cno}
+    </delete>
+    
+
+	
+	<select id="getMaxWrId" resultType="int">
+	 	select max(wr_id) from g4_write_notice
+	</select>
+	
+	<select id="getMainNoticeBoard" resultType="board">
+		select * from g4_write_notice where wr_is_comment = 0 and wr_option not in ('secret') order by wr_datetime desc limit 4
+	</select>
+	
+	<select id="getMainStatementBoard" resultType="board">
+		select * from g4_write_statement where wr_is_comment = 0 and wr_option not in ('secret') order by wr_datetime desc limit 4
+	</select>
+	
+	<select id="getMainNewsBoard" resultType="board">
+		select * from g4_write_news where wr_is_comment = 0 and wr_option not in ('secret') order by wr_datetime desc limit 4
+	</select>
+	
+	
+	<select id="getMainPressBoard" resultType="board">
+		select * from g4_write_press where wr_is_comment = 0 and wr_option not in ('secret') order by wr_datetime desc limit 4
+	</select>
+	
+	<select id="getMainReportBoard" resultType="board">
+		select * from g4_write_report where wr_is_comment = 0 and wr_option not in ('secret') order by wr_datetime desc limit 4
+	</select>
+	
+	<select id="getImageBoard" resultType="boardfile">
+		Select * from g4_board_file where bo_table = 'photo' order by bf_datetime desc limit 2
+	</select>
+	<!-- ======================스크랩====================== -->
+	
+	<insert id="insertScrap" parameterType="Map">
+		insert into g4_scrap(
+		ms_id , mb_id, wr_subject, bo_table,
+		wr_id , ms_datetime) 
+		values(
+		0 , #{mb_id},#{wr_subject}, #{bo_table},
+		#{wr_id} , now()
+		)
+	</insert>
+	<select id="scrapOverlapcheck" parameterType="Map" resultType="int">
+		select count(*) from g4_scrap where mb_id = #{mb_id} and bo_table = #{bo_table} and wr_id = #{wr_id}
+	</select>
+	
+	<select id="getscrapcount" parameterType="Map" resultType="scrap">
+		select * from g4_scrap order by ms_datetime desc limit #{paging}, #{countpage} 
+	</select>
+	<select id="totalscrap" resultType="int" >
+		select count(*) from g4_scrap	
+	</select>
+	<select id="getScrapList" parameterType="Map" resultType="scrap">
+		select * from g4_scrap where mb_id = #{mb_id} order by ms_id desc
+	</select>
+	<delete id="deleteScrap" parameterType="Map">
+		delete from g4_scrap where wr_id = #{wr_id}
+	</delete>
+	
+	<delete id="deleteboardcheck" parameterType="Map">
+		delete from g4_write_#{bo_table}
+	</delete>
+
+</mapper>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CORRUPTION">
+	<insert id="insertcorruption" parameterType="corruption">
+		 insert into Corruption(
+		 CT_ID,
+		 CT_NAME,
+		 CT_AUTHORITY,
+		 CT_UNIVERSITY,
+		 CT_TITLE,
+		 CT_CONTENT,
+		 CT_DATE,
+		 CT_READ 
+		 )
+		 values(
+		 #{ct_id},
+		 #{ct_name},
+		 #{ct_authority},
+		 #{ct_university},
+		 #{ct_title},
+		 #{ct_content},
+		 sysdate(),
+		 #{ct_read}
+		 )
+	</insert>
+	<insert id="insertcorruptioncomment" parameterType="comment">
+		insert into CorruptionComment(
+		CT_NUM,
+		CC_ID,
+		CC_CONTENT,
+		CC_DATE
+		 )
+		 values(
+		 #{ct_num},
+		 #{cc_id},
+		 #{cc_content},
+		 sysdate()
+		 )
+	</insert>
+	
+	<select id="selectcorruptionuserlist" resultType="corruption" parameterType="criteria">
+		select
+		*
+		from
+		Corruption
+		where
+		CT_ID = #{ct_id}
+		order by
+		ct_num desc,
+		ct_date desc 
+		Limit #{pageStart}, #{perPageNum};
+	</select>
+	
+	<select id="selectcorruptionuserlisttotalcount" resultType="int" parameterType="criteria">
+		select count(*) from
+		Corruption where CT_ID=#{ct_id}
+	</select>
+	
+	<select id="selectcorruptiondetail" resultType="corruption" parameterType="int">
+		select * from Corruption where ct_num=#{anum};
+	</select>
+	
+	<select id="selectcorruptioncount" resultType="Int" parameterType="corruption">
+		select count(*) from Corruption where ct_read='N'
+	</select>
+	<select id="selectcorruptiontotalcount" resultType="int" parameterType="Map">
+		select count(*) from Corruption
+		 <where>
+			<if test="searchOption==''">
+ 			</if>					
+				<if test="searchOption=='titlecontent'">
+				and (ct_title like '%${keyword}%' or ct_content like '%${keyword}%')
+ 				</if>					
+				<if test="searchOption=='title'">
+				and ct_title like '%${keyword}%'
+ 				</if>					
+				<if test="searchOption=='content'">
+				and ct_content like '%${keyword}%' 
+ 				</if>					
+				<if test="searchOption=='writer'">
+				and ct_name like '%${keyword}%'
+ 				</if>		
+			</where>
+	</select>
+	<select id="selectcorruptioncriteria" resultType="corruption" parameterType="Map">
+		select * from Corruption
+		  <where>
+			<if test="searchOption==''">
+ 			</if>					
+				<if test="searchOption=='titlecontent'">
+				and (ct_title like '%${keyword}%' or ct_content like '%${keyword}%')
+ 				</if>					
+				<if test="searchOption=='title'">
+				and ct_title like '%${keyword}%'
+ 				</if>					
+				<if test="searchOption=='content'">
+				and ct_content like '%${keyword}%' 
+ 				</if>					
+				<if test="searchOption=='writer'">
+				and ct_name like '%${keyword}%'
+ 				</if>		
+			</where>
+		order by ct_num desc, ct_date desc 
+		Limit #{criteria.pageStart}, #{criteria.perPageNum};
+	</select>
+	<select id="selectcorruptioncommentlist" resultType="corruptioncomment" parameterType="int">
+		select * from CorruptionComment where ct_num = #{anum}
+	</select>
+	
+	<update id="updatecorruptionread" parameterType="int">
+		update Corruption set ct_read = 'Y' where ct_num = #{anum}
+	</update>
+	<update id="updatecorruption" parameterType="corruption">
+		update Corruption set CT_TITLE=#{ct_title}, CT_CONTENT=#{ct_content}, CT_UNIVERSITY=#{ct_university}, CT_NAME=#{ct_name} where CT_NUM=#{ct_num};
+	</update>
+	
+	<delete id="deletecorruption" parameterType="int">
+		delete from Corruption where ct_num=#{num};
+	</delete>
+		<delete id="deletecorruptioncomment" parameterType="Map">
+		delete from CorruptionComment where CT_NUM=#{anum} and CC_NUM = #{cnum};
+	</delete>
+	
+		<select id="newcorruptionlist"  resultType="corruption" parameterType= "int">
+			select
+		*
+		from
+		Corruption
+		order by
+		ct_num desc,
+		ct_date desc 
+		Limit #{count}
+	
+	</select>
+</mapper>

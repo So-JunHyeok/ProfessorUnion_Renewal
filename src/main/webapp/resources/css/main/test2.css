@@ -1,0 +1,211 @@
+#wrap {
+  width: 100%;
+  height: 100%;
+}
+#header {
+  width: 100%;
+  height: 80px;
+  background-color: greenyellow;
+}
+#contents {
+  width: 100%;
+  display: flex;
+}
+#footer {
+  width: 100%;
+  height: 70px;
+}
+
+/* container */
+#header-container {
+  width: 100%;
+  height: 100%;
+}
+.contents-container {
+  width: 1280px;
+  height: 100%;
+}
+.container {
+  width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+}
+/* container */
+
+
+
+/* header */
+.header-menubar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-bottom: 2px solid #000;
+}
+.menu-logo-title {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 5%;
+}
+.menu-logo-title .logo {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-logo-title .logo img{
+  width: 100%;
+  height: 100%;
+}
+.menu-logo-title .logo-title {
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+.menu-logo-title .logo-title a{
+  text-decoration: none;
+  color: #000;
+}
+.menu {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu ul {
+  display: flex;
+}
+.menu li{
+  list-style: none;
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  display: inline-block;
+  position: relative;
+}
+.menu li a{
+  text-decoration: none;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+}
+.menu li ul {
+  display: none;
+  position: absolute;
+  background-color: #f2f2f2;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+}
+.menu li ul li {
+
+}
+.menu li ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 15px;
+  font-weight: bold;
+}
+.menu li:hover ul {
+  display: block;
+}
+.menu-join {
+  width: 10%;
+  height: 100%;
+}
+.menu-join .menu-icon {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-join .menu-icon i{
+  font-size: 40px;
+}
+.menu-join .join-icon {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu-join .join-icon li{
+  list-style: none;
+  float: left;
+  margin-right: 8px;
+}
+.menu-join .join-icon a{
+  color: #000;
+  font-size: 15px;
+  text-decoration: none;
+}
+/* header */
+
+
+/* drop-box */
+.drop-box {
+  width: 100%;
+  height: 50px;
+  background-color: #823842;
+}
+/* drop-box */
+
+
+/* contents */
+/* 좌측 메뉴 */
+.side-yard {
+  width: 16%;
+  height: 100%;
+  text-align: center;
+}
+.yard-title {
+  width: 100%;
+  padding: 15px 0px;
+}
+.yard-text {
+  width: 100%;
+}
+.yard-text ul {
+
+}
+.yard-text li {
+  width: 100%;
+  list-style: none;
+  padding: 10px 0px;
+}
+.yard-text li:hover {
+  background-color: #f2f2f2;
+  color: #fff;
+}
+.yard-text li:hover a {
+  color: #23539b;
+  transition: all 0.4s ease;
+  text-decoration: underline;
+}
+.yard-text li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 15px;
+  font-weight: bold;
+}
+/* 좌측메뉴 */
+.guid {
+  width: 100%;
+}
+.guid-contents {
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  background-color: #f2f2f2;
+}
+.guid-contents table {
+  margin: 0 auto;
+}
+.guid-btn {
+  width: 100%;
+  text-align: center;
+}
+/* contents */

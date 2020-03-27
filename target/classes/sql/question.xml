@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QUESTION">
+ 
+	<!--<insert id="question_write" parameterType="question">
+		INSERT
+		INTO g4_question(
+		mb_id,
+		qu_subject,
+		qu_content,
+		qu_wr_date
+		)
+		VALUES(
+		#{mb_id},
+		#{qu_subject},
+		#{qu_content},
+		#{qu_wr_date}
+		)
+	</insert>-->
+	
+	<!-- 내 문의 함 -->
+	<select id="question_list" parameterType="criteria" resultType="question">
+		SELECT
+		*
+		FROM g4_write_question
+		WHERE wr_id > 0
+		AND
+		mb_id = #{aid}
+		ORDER BY wr_id DESC, wr_datetime DESC
+		LIMIT #{pageStart}, #{perPageNum}
+	</select> 
+	
+	<select id="admin_question_list" parameterType="criteria" resultType="question">
+		SELECT
+		*
+		FROM g4_write_question
+		WHERE wr_id > 0
+		ORDER BY wr_id DESC, wr_datetime DESC
+		LIMIT #{pageStart}, #{perPageNum}
+	</select> 
+	
+	<select id="new_question_list" parameterType="int" resultType="question">
+		SELECT
+		*
+		FROM g4_write_question
+		WHERE wr_id > 0
+		ORDER BY wr_id DESC, wr_datetime DESC
+		LIMIT #{count}
+	</select> 
+	<!-- 문의 개수 -->
+	<select id="countquestion" parameterType="criteria" resultType="int">
+		SELECT
+		COUNT(wr_id)
+		FROM g4_write_question
+		WHERE wr_id > 0
+	</select>
+	 
+
+<!-- 	<select id="question_list" parameterType="String" resultType="question">
+		SELECT
+		*
+		FROM g4_question
+		WHERE qu_id > 0
+		AND
+		mb_id = #{aid}
+		ORDER BY qu_id DESC, qu_wr_date DESC
+		LIMIT #{pageStart}, #{perPageNum}
+	</select> -->
+	
+	<!-- 내 문의 상세 보기  -->
+	<select id="contview" parameterType="Map" resultType="question">
+		SELECT
+		*
+		FROM g4_write_question where wr_id = #{wr_id}
+	</select>  
+	
+</mapper>

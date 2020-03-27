@@ -1,0 +1,43 @@
+.table_area{
+	
+	width: 100%;
+	height: 90%;
+	
+}
+
+.table_area table{
+	
+	width: 100%;
+	height: 600px;
+	border-collapse: collapse;
+			
+}
+
+
+.table_area td{
+	
+	text-align: center;
+	border-bottom: 1px solid;	
+	
+}
+
+.table_area th{
+	
+	background-color: gray;
+	
+}
+
+.table_area tr{
+
+	
+
+	
+}
+
+
+.pagingarea{
+	
+	width: 100$;
+	height: 300px;
+}
+
